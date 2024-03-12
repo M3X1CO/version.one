@@ -37,6 +37,19 @@ pyasn1-modules==0.3.0
 pydantic==2.6.3
 pydantic_core==2.16.3
 Pygments==2.17.2
+<<<<<<< HEAD
+=======
+python-dateutil==2.8.2
+python-json-logger==2.0.7
+pywin32
+pywin32-ctypes==0.2.2
+pywinpty==2.0.12
+pyxdg==0.28
+PyYAML==6.0.1
+pyzmq==25.1.2
+referencing==0.33.0
+reportlab==4.0.7
+>>>>>>> 538c60e04aa65eca6d923c4b86fb9b4ccb227ac1
 requests==2.31.0
 rsa==4.9
 six==1.16.0
