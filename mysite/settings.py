@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-z@%lr+g_2ai^iu((k+lm&oy^wjo+ttq$%r5pqe0plo3*3t^o=%'
+SECRET_KEY = django_key
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -76,23 +76,17 @@ TEMPLATES = [
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
 
+## Postgres
 DATABASES = {
-    'default': dj_database_url.config(
-        # Replace this value with your local database's connection string.
-        default='postgresql://postgres:postgres@localhost:5432/mysite',
-        conn_max_age=600
-    )
+     'default': {
+         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+         'NAME':'postgres',
+         'USER':'db_user',
+         'PASSWORD':'db_password',
+         'HOST':'database-2.cnmqucsm61w0.ap-southeast-2.rds.amazonaws.com',
+         'PORT':'5432'
+     }
 }
-
-# Database
-# https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
 
 
 # Password validation
