@@ -261,7 +261,7 @@ def to_markdown(text):
     text = text.replace('•', '  *')
     return Markdown(textwrap.indent(text, '> ', predicate=lambda _: True))
 
-genai.configure(api_key="AIzaSyCtUjvNBrowGK9emdF2QZxA7StOpRpYoTc")
+genai.configure(api_key=os.getenv('GEMINI_SET_KEY'))
 model = genai.GenerativeModel('gemini-pro')
 chat = model.start_chat(history=[])
 response = chat.send_message("Detect the language and when you respond, answer the question and reply back in English. "
