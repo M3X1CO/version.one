@@ -13,6 +13,7 @@ import google.generativeai as genai
 from IPython.display import Markdown
 from dotenv import load_dotenv
 load_dotenv()
+import os
 
 
 
