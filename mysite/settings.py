@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = django_key
+SECRET_KEY = os.getenv('SECRET_DJANGO_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -78,20 +78,14 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 ## Postgres
 DATABASES = {
-     'default': {
-         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-         'NAME':'database-2',
-         'USER':'db_user',
-         'PASSWORD':'db_password',
-         'HOST':'database-2.cnmqucsm61w0.ap-southeast-2.rds.amazonaws.com',
-         'PORT':'5432'
-     }
+    'default': dj_database_url.parse(env('DATABASE_URL'))
 }
 
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 
+'''
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -106,6 +100,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+'''
 
 
 # Internationalization
@@ -134,7 +129,7 @@ if not DEBUG:
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 STATICFILES_DIRS = [
-    BASE_DIR / 'static'
+    BASE_DIR / 'static/'
 ]
 
 # Default primary key field type
